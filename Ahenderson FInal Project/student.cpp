@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 //Accessors
 
 void Student::setStudentID(string ID) {
