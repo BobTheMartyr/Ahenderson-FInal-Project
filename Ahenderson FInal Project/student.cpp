@@ -24,7 +24,11 @@ void Student::setStudentAge(string age) {
 	this->studentAge = age;
 }
 
-//TODO void Student::setDaysInCourse(){}
+void Student::setDaysInCourse(days1, days2, days3) {
+	this->daysInCourse[0] = days1;
+	this->daysInCourse[1] = days2;
+	this->daysInCourse[2] = days3;
+}
 
 void Student::setDegreeProgram(string degree) {
 	this->degreeProgram = degree;
@@ -37,7 +41,7 @@ string Student::getFirstName() { return this->firstName; }
 string Student::getLastName() { return this->lastName; }
 string Student::getEmail() { return this->Email; }
 int Student::getStudentAge() { return this->studentAge; }
-//TODO Student::getDaysInCourse(){}
+int Student::getDaysInCourse(){ return this->daysInCourse }
 string Student::getDegreeProgram() { return degreeProgram; }
 
 //Print

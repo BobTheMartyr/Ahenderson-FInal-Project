@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "student.h"
+#include "degree.h"
+#include "roster.h"
 #include <string>
 #include <array>
 using namespace std;
@@ -12,7 +14,7 @@ const string studentData[] =
 "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
 "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
 "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-"A5,Andrew,Hendrson,ashenderson4372@gmail.com,32,50,69,420,SOFTWARE"
+"A5,Andrew,Henderson,ashenderson4372@gmail.com,32,50,69,420,SOFTWARE"
 };
 
 int main()
@@ -28,8 +30,10 @@ int main()
         string firstName;
         string lastName;
         string email;
-        string age;
-        array<string, 3> days = { "","","" };
+        int age;
+        int days1;
+        int days2;
+        int days3;
         string program;
         for (int j = 0; j < studentData[i].size(); ++j) {
             if (studentData[i][j] == ',' || j == studentData[i].size() - 1) {
@@ -49,16 +53,16 @@ int main()
                     email = temp;
                     break;
                 case 4:
-                    age = temp;
+                    age = stoi(temp);
                     break;
                 case 5:
-                    days[0] = temp;
+                    days1 = stoi(temp);
                     break;
                 case 6:
-                    days[1] = temp;
+                    days2 = stoi(temp);
                     break;
                 case 7:
-                    days[2] = temp;
+                    days3 = stoi(temp);
                     break;
                 case 8:
                     program = temp + studentData[i].back();
@@ -71,7 +75,7 @@ int main()
 
         }
         // **TODO insert student object constructor here
-        cout << ID << " " << firstName << " " << lastName << " " << email << " " << age << " " << days[0] << " " << days[1] << " " << days[2] << " " << " " << program << endl;
+        cout << ID << " " << firstName << " " << lastName << " " << email << " " << age << " " << days1 << " " << days2 << " " << days3 << " " << program << endl;
     }
 
 
