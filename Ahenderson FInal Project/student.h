@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "degree.h"
 using namespace std;
 
 
@@ -13,29 +14,35 @@ private:
 	string lastName;
 	string emailAddress;
 	int studentAge;
-	string degreeProgram;
-	int daysInCourse[3];
+	array<int, 3> daysInCourse;
+	DegreeProgram degreeProgram;
+	
 
 public:
+	Student(string studentID, string firstName, string lastName, string email, int studentAge, int days1, int days2, int days3, string degreeProgram);
+
+	//setters
+	void setStudentID(string ID);
+	void setFirstName(string inputFirstName);
+	void setLastName(string inputLastName);
+	void setEmail(string inputEmail);
+	void setStudentAge(int inputAge);
+	void setDaysInCourse(int days1, int days2, int days3);
+	void setDegreeProgram(DegreeProgram inputProgram);
+
+	//getters
 	string getStudentID();
 	string getFirstName();
 	string getLastName();
 	string getEmail();
 	int getStudentAge();
-	int getDaysInCourse();
-	string getDegreeProgram();
+	array<int, 3> getDaysInCourse();
+	DegreeProgram getDegreeProgram();
 
-	void setStudentID( string ID );
-	void setFirstName( string inputFirstName );
-	void setLastName( string inputLastName );
-	void setEmail( string inputEmail );
-	void setStudentAge( string inputAge );
-	void setDaysInCourse();
-	void setDegreeProgram( string inputProgram );
+	//prints
 	void print();
 
-	Student(string studentID, string firstName, string lastName, string email, int studentAge, int daysInCourse[], string degreeProgram);
 
 };
 
-#endif // !STUDENT_H
+#endif 
