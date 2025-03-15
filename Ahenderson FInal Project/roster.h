@@ -5,32 +5,33 @@
 #include <string>
 #include <array>
 #include "degree.h"
+#include "student.h"
 
 using namespace std;
 
 class Roster {
-	public:
 
-		Roster();
+public:
 
-		~Roster();
+	Roster();
 
-		void add(string studentInformation, int slot);
+	~Roster();
 
-		void remove(string studentID); //print error if student not found
+	Student* classRosterArray[5];
+	
+	void add(string studentInformation, int slot);
 
-		void printAll();
+	void remove(string studentID); //print error if student not found
 
-		void averageDaysInCourse(string studentID);
+	void printAll();
 
-		void printInvalidEmails();
+	void printAverageDaysInCourse(string studentID);
 
-		void printByDegreeProgram(DegreeProgram degreeProgram);
+	void printInvalidEmails();
 
-	private:
-		
-		Student* classRosterArray[5];
-}
+	void printByDegreeProgram(DegreeProgram degreeProgram);
+
+};
 
 
 #endif

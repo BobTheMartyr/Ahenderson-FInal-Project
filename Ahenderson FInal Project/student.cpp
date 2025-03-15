@@ -13,7 +13,6 @@ Student::Student(string studentID, string firstName, string lastName, string ema
 	setStudentAge(studentAge);
 	setDaysInCourse(days1, days2, days3);
 	setDegreeProgram(degreeProgram);
-
 }
 
 //Setters
@@ -53,14 +52,14 @@ array<int, 3> Student::getDaysInCourse() { return daysInCourse };
 DegreeProgram Student::getDegreeProgram() { return this->degreeProgram; } 
 
 //Print
-void print(){
+void print() {
 	cout << this->getStudentID() << "\t"
-		 << "First Name: " << this->getFirstName() << "\t"
-		 << "Last Name: " << this->getLastName() << "\t"
-		 << "Age: " >> this->getStudentAge() << "\t"
-		 << "Days in course: {" << this->daysInCourse[0] ", " << this->daysInCourse[1] << ", " << this->daysInCourse[2] << "}" << "\t"
-		 << "Degree Program: " << (this->getDegreeProgram() == 0 ? "Security" : (this->getDegreeProgram() == 1 ? "Network" : "Software")) << endl;
+		<< "First Name: " << this->getFirstName() << "\t"
+		<< "Last Name: " << this->getLastName() << "\t"
+		<< "Age: " >> this->getStudentAge() << "\t"
+		<< "Days in course: {" << this->daysInCourse[0] ", " << this->daysInCourse[1] << ", " << this->daysInCourse[2] << "}" << "\t"
+		<< "Degree Program: " << (this->getDegreeProgram() == 0 ? "Security" : (this->getDegreeProgram() == 1 ? "Network" : "Software")) << endl;
 
-}
+};
 
 

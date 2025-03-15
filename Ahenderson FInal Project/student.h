@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "roster.h"
 #include "degree.h"
 using namespace std;
 
@@ -28,7 +29,7 @@ public:
 	void setEmail(string inputEmail);
 	void setStudentAge(int inputAge);
 	void setDaysInCourse(int days1, int days2, int days3);
-	void setDegreeProgram(DegreeProgram inputProgram);
+	void setDegreeProgram(string degreeProgram);
 
 	//getters
 	string getStudentID();
@@ -41,7 +42,6 @@ public:
 
 	//prints
 	void print();
-
 
 };
 

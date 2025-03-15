@@ -4,13 +4,16 @@
 
 using namespace std;
 
-void Roster::~Roster(){
+Roster::Roster() {};
+
+Roster::~Roster(){
 	for (int i = 0; i < 5; i++) {
         if (classRosterArray[i] != nullptr) {
             delete classRosterArray[i];
         }
 	}
 }
+
 
 void Roster::add(string studentInformation, int slot){
 
