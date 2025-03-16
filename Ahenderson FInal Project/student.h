@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include "roster.h"
 #include "degree.h"
 using namespace std;
 
