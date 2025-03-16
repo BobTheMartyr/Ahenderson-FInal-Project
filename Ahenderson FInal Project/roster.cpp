@@ -76,7 +76,8 @@ void Roster::add(string studentInformation, int slot){
 }
 
 void Roster::remove(string studentID) {
-
+    
+    cout << "Removing student, ID: " << studentID << endl;
     bool studentFound = false;
     
     for (int i = 0; i < 5; i++) {
@@ -88,14 +89,16 @@ void Roster::remove(string studentID) {
     }
 
     if (!studentFound) {
-        cout << "The student with that ID number was not found" << endl;
+        cout << "The student with ID number " << studentID << " was not found" << endl;
     }
 
 }
 
 void Roster::printAll() {
     for (int i = 0; i < 5; i++) {
-        classRosterArray[i]->print();
+        if (classRosterArray[i] != nullptr) {
+            classRosterArray[i]->print();
+        }
     }
 }
 
@@ -104,7 +107,7 @@ void Roster::printAverageDaysInCourse(string studentID) {
     for (int i = 0; i < 5; i++) {
         if ( classRosterArray[i] != nullptr && classRosterArray[i]->getStudentID() == studentID ) {
             tempArr = classRosterArray[i]->getDaysInCourse();
-            cout << "Average Days in course for " << studentID << ": " << (tempArr[0] + tempArr[1] + tempArr[2]) / 3 << endl;
+            cout << studentID << ": " << (tempArr[0] + tempArr[1] + tempArr[2]) / 3 << endl;
         }
     }
 }
