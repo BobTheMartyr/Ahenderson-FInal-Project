@@ -17,9 +17,11 @@ public:
 
 	~Roster();
 
-	Student* classRosterArray[5];
+	Student* classRosterArray[5] = { nullptr };
+
+	void parse(string studentInfo);
 	
-	void add(string studentInformation, int slot);
+	void add(string ID, string firstName, string lastName, string email, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram);
 
 	void remove(string studentID); //print error if student not found
 

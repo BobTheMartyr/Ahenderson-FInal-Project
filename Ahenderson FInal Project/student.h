@@ -20,7 +20,7 @@ private:
 	
 
 public:
-	Student(string studentID, string firstName, string lastName, string email, int studentAge, int days1, int days2, int days3, string degreeProgram);
+	Student(string studentID, string firstName, string lastName, string email, int studentAge, int days1, int days2, int days3, DegreeProgram degreeProgram);
 
 	//setters
 	void setStudentID(string ID);
@@ -29,7 +29,7 @@ public:
 	void setEmail(string inputEmail);
 	void setStudentAge(int inputAge);
 	void setDaysInCourse(int days1, int days2, int days3);
-	void setDegreeProgram(string degreeProgram);
+	void setDegreeProgram(DegreeProgram degreeProgram);
 
 	//getters
 	string getStudentID();

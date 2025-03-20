@@ -6,7 +6,7 @@ using namespace std;
 
 
 //Constructor
-Student::Student(string studentID, string firstName, string lastName, string email, int studentAge, int days1, int days2, int days3, string degreeProgram) {
+Student::Student(string studentID, string firstName, string lastName, string email, int studentAge, int days1, int days2, int days3, DegreeProgram degreeProgram) {
 	setStudentID(studentID);
 	setFirstName(firstName);
 	setLastName(lastName);
@@ -37,10 +37,8 @@ void Student::setDaysInCourse(int days1, int days2, int days3) {
 	this->daysInCourse[1] = days2;
 	this->daysInCourse[2] = days3;
 }
-void Student::setDegreeProgram(string degreeProgram) {
-	if (degreeProgram == "SECURITY") { this->degreeProgram = DegreeProgram::SECURITY; };
-	if (degreeProgram == "NETWORK") { this->degreeProgram = DegreeProgram::NETWORK; };
-	if (degreeProgram == "SOFTWARE") { this->degreeProgram = DegreeProgram::SOFTWARE; };
+void Student::setDegreeProgram(DegreeProgram degreeProgram) {
+	this->degreeProgram = degreeProgram;
 }
 
 //Getters
@@ -49,8 +47,8 @@ string Student::getFirstName() { return this->firstName; }
 string Student::getLastName() { return this->lastName; }
 string Student::getEmail() { return this->emailAddress; }
 int Student::getStudentAge() { return this->studentAge; }
-array<int, 3> Student::getDaysInCourse() { return daysInCourse; };
-DegreeProgram Student::getDegreeProgram() { return this->degreeProgram; } 
+array<int, 3> Student::getDaysInCourse() { return daysInCourse; }
+DegreeProgram Student::getDegreeProgram() { return this->degreeProgram; }
 
 //Print
 void Student::print() {
@@ -59,7 +57,8 @@ void Student::print() {
 		<< "Last Name: " << this->getLastName() << "\t"
 		<< "Age: " << this->getStudentAge() << "\t"
 		<< "Days in course: {" << this->daysInCourse[0] << ", " << this->daysInCourse[1] << ", " << this->daysInCourse[2] << "}" << "\t"
-		<< "Degree Program: " << (this->getDegreeProgram() == 0 ? "Security" : (this->getDegreeProgram() == 1 ? "Network" : "Software")) << endl;
+		<< "Degree Program: " << (this->getDegreeProgram() == DegreeProgram::SECURITY ? "Security" :
+			this->getDegreeProgram() == DegreeProgram::NETWORK ? "Network" : "Software") << endl;
 
 };
 

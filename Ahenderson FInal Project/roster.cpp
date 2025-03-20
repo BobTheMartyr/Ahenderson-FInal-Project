@@ -14,65 +14,67 @@ Roster::~Roster(){
 	}
 }
 
+void Roster::parse(string studentInfo){
 
-void Roster::add(string studentInformation, int slot){
+    size_t rhs = studentInfo.find(",");
+    string ID = studentInfo.substr(0, rhs);
 
-        int initialPos = 0;
-        int count = 0;
-        string ID;
-        string firstName;
-        string lastName;
-        string email;
-        int age;
-        int days1;
-        int days2;
-        int days3;
-        string program;
+    size_t lhs = rhs + 1;
+    rhs = studentInfo.find(",", lhs);
+    string firstName = studentInfo.substr(lhs, rhs - lhs);
 
-        for (int i = 0; i < studentInformation.size(); i++) {
-            if (studentInformation[i] == ',' || i == studentInformation.size() - 1) {
-                string temp = studentInformation.substr(initialPos, i - initialPos);
+    lhs = rhs + 1;
+    rhs = studentInfo.find(",", lhs);
+    string lastName = studentInfo.substr(lhs, rhs - lhs);
 
-                switch (count) {
-                case 0:
-                    ID = temp;
-                    break;
-                case 1:
-                    firstName = temp;
-                    break;
-                case 2:
-                    lastName = temp;
-                    break;
-                case 3:
-                    email = temp;
-                    break;
-                case 4:
-                    age = stoi(temp);
-                    break;
-                case 5:
-                    days1 = stoi(temp);
-                    break;
-                case 6:
-                    days2 = stoi(temp);
-                    break;
-                case 7:
-                    days3 = stoi(temp);
-                    break;
-                case 8:
-                    program = temp + studentInformation.back();
-                    break;
-                }
+    lhs = rhs + 1;
+    rhs = studentInfo.find(",", lhs);
+    string email = studentInfo.substr(lhs, rhs - lhs);
 
-                initialPos = i + 1;
-                count++;
+    lhs = rhs + 1;
+    rhs = studentInfo.find(",", lhs);
+    int age = stoi(studentInfo.substr(lhs, rhs - lhs));
 
+    lhs = rhs + 1;
+    rhs = studentInfo.find(",", lhs);
+    int days1 = stoi(studentInfo.substr(lhs, rhs - lhs));
+
+    lhs = rhs + 1;
+    rhs = studentInfo.find(",", lhs);
+    int days2 = stoi(studentInfo.substr(lhs, rhs - lhs));
+
+    lhs = rhs + 1;
+    rhs = studentInfo.find(",", lhs);
+    int days3 = stoi(studentInfo.substr(lhs, rhs - lhs));
+
+    lhs = rhs + 1;
+    rhs = studentInfo.find(",", lhs);
+    string temp = studentInfo.substr(lhs, rhs - lhs);
+    DegreeProgram program;
+    if (temp == "SECURITY") {
+        program = DegreeProgram::SECURITY;
+    }
+    else if (temp == "NETWORK") {
+        program = DegreeProgram::NETWORK;
+    }
+    else {
+        program = DegreeProgram::SOFTWARE;
+    }
+    
+    add(ID, firstName, lastName, email, age, days1, days2, days3, program);
+}
+
+
+void Roster::add(string ID, string firstName, string lastName, string email, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram){
+
+        Student* newStudent = new Student(ID, firstName, lastName, email, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+        
+        for (int i = 0; i < 5; i++) {
+            if (classRosterArray[i] == nullptr) {
+                classRosterArray[i] = newStudent;
+                break;
             }
-
         }
-
-        Student* newStudent = new Student(ID, firstName, lastName, email, age, days1, days2, days3, program);
-        classRosterArray[slot] = newStudent;
-
 }
 
 void Roster::remove(string studentID) {

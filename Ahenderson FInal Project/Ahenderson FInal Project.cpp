@@ -35,9 +35,9 @@ int main()
     //Finds the length of studentData. Also used as roster length
     int len = end(studentData) - begin(studentData);
 
-    //Calls the add function to add each student to the roster array
+    //Calls the prase function to add each student to the roster array
     for (int i = 0; i < len; i++) {
-        classRoster->add(studentData[i], i);
+        classRoster->parse(studentData[i]);
     }
 
     //Prints all student data and invalid emails
